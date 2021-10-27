@@ -158,6 +158,7 @@ class FigurePayThemeData {
     appBarTheme: AppBarTheme(
       color: _colorScheme.primary,
       iconTheme: IconThemeData(color: _colorScheme.onPrimary),
+      brightness: Brightness.dark,
     ),
     bottomAppBarTheme: BottomAppBarTheme(
       color: _colorScheme.primary,

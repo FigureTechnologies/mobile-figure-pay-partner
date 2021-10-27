@@ -1,4 +1,0 @@
-#Wed Oct 27 16:30:15 EDT 2021
-base.0=/Users/keawarozet/Desktop/krozet-figure/mobile-figure-pay-partner/mobile-figure-pay-partner/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
