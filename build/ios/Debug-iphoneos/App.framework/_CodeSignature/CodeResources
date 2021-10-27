@@ -10,19 +10,143 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		oG5/OGn+vw7vp/nu5DUDoZJ4nFc=
+		dLTOQK59ll4Xb+fJCOky+2MIIOg=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
-		vKJkVIcw+LGHFnKJGwrQwCREv68=
+		hhxFm2rk6sTBECZ2PLNCi9yWMAM=
 		</data>
 		<key>flutter_assets/NOTICES</key>
 		<data>
-		lLuT93VWLTDh+UaQpgx7vBeiFqo=
+		U39RHgHPJCfDVebjW6CPtzwoAnw=
+		</data>
+		<key>flutter_assets/assets/.DS_Store</key>
+		<data>
+		GW/GP7Q+wswKQrkQHT01PIUu6C0=
+		</data>
+		<key>flutter_assets/assets/bg_gradient.png</key>
+		<data>
+		C5xuT6qXjwQcF8UHNXI/CE7EtcA=
+		</data>
+		<key>flutter_assets/assets/figure_pay_logo_long.png</key>
+		<data>
+		DfcsbxBYEndZSzunNqDjoNdPuqc=
+		</data>
+		<key>flutter_assets/fonts/FontAwesome/Custom.ttf</key>
+		<data>
+		8hUQnBJx4dJx5KQibQM3/OfRmGg=
+		</data>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-Black.ttf</key>
+		<data>
+		oSZPVBqQmpOPZoWV1KCmi+Im74o=
+		</data>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-Bold.ttf</key>
+		<data>
+		tedN+lXVxI+oOlDu8nB+RxMQcW0=
+		</data>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-ExtraBold.ttf</key>
+		<data>
+		o/Jghw4o44BrlYE63DcAKRAWECI=
+		</data>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-ExtraLight.ttf</key>
+		<data>
+		xFGqZlzeCVPXVdbct3e9koXXDR8=
+		</data>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-Light.ttf</key>
+		<data>
+		zBOrztpz6ODVK2EbCnO1YN7roG0=
+		</data>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-Medium.ttf</key>
+		<data>
+		+1nEkT5oKSMYJl+tLzjMnuhwjbo=
+		</data>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-Regular.ttf</key>
+		<data>
+		XU7MXHoafn2XMR5N7DZtyu1uMIg=
+		</data>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-SemiBold.ttf</key>
+		<data>
+		PK5ubfbhvOiDmNdLiga4gZ0daX8=
+		</data>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-Thin.ttf</key>
+		<data>
+		mTy9hPJm24oltMYJ/4lsfjr/krQ=
+		</data>
+		<key>flutter_assets/fonts/Jura/Jura-Bold.ttf</key>
+		<data>
+		ilQnzEa+J+BW7kUMUlM6TtXqPCQ=
+		</data>
+		<key>flutter_assets/fonts/Jura/Jura-Light.ttf</key>
+		<data>
+		l0dse9FiN3dkHCmkQ6sgj4obEZw=
+		</data>
+		<key>flutter_assets/fonts/Jura/Jura-Medium.ttf</key>
+		<data>
+		mWWC5yq9WsBKzJNQgR0yEckO97w=
+		</data>
+		<key>flutter_assets/fonts/Jura/Jura-Regular.ttf</key>
+		<data>
+		9tDPOloR2zWq+9IU8w1S/k/5qT8=
+		</data>
+		<key>flutter_assets/fonts/Jura/Jura-SemiBold.ttf</key>
+		<data>
+		CwA/Zi7XcuKdgLlzBhQsl6nCz14=
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
 		33xe6rFwPlxRnZOgZWsODADpUI4=
+		</data>
+		<key>flutter_assets/fonts/Overpass/Overpass-Black.ttf</key>
+		<data>
+		HwFEHkiNGP7u2pa5CH87uoBbXMI=
+		</data>
+		<key>flutter_assets/fonts/Overpass/Overpass-Bold.ttf</key>
+		<data>
+		mTvPCAJsePpGLOvc9IuwUGu76MA=
+		</data>
+		<key>flutter_assets/fonts/Overpass/Overpass-ExtraBold.ttf</key>
+		<data>
+		8V8/40B3ypyOgozKvXojom+BcPE=
+		</data>
+		<key>flutter_assets/fonts/Overpass/Overpass-ExtraLight.ttf</key>
+		<data>
+		REhIM7Bfe6jC76+fz20gWc3vrhM=
+		</data>
+		<key>flutter_assets/fonts/Overpass/Overpass-Light.ttf</key>
+		<data>
+		wJ16zTvMsRd6N1zsLVDO3Lgn3tw=
+		</data>
+		<key>flutter_assets/fonts/Overpass/Overpass-Regular.ttf</key>
+		<data>
+		msmmBT6oDYhbqL3ZYd0II4Q36lA=
+		</data>
+		<key>flutter_assets/fonts/Overpass/Overpass-SemiBold.ttf</key>
+		<data>
+		Up4lcdlCS/7LDj85NHCJnLhUxeg=
+		</data>
+		<key>flutter_assets/fonts/Overpass/Overpass-Thin.ttf</key>
+		<data>
+		0Wl5iMu9s15qXpacyFUYXzA7DD0=
+		</data>
+		<key>flutter_assets/fonts/Poppins/Poppins-Black.ttf</key>
+		<data>
+		3W+GEqKsbF9+b4edkofeegck74Q=
+		</data>
+		<key>flutter_assets/fonts/Poppins/Poppins-Bold.ttf</key>
+		<data>
+		mzU87FbVhRVKRAsriDzW93nvNeM=
+		</data>
+		<key>flutter_assets/fonts/Poppins/Poppins-ExtraBold.ttf</key>
+		<data>
+		6TROHuOLikV79/uRFnZdq/t3HLE=
+		</data>
+		<key>flutter_assets/fonts/Poppins/Poppins-Medium.ttf</key>
+		<data>
+		Ry0OHUFQzGmt5TPuVK6Gj63ULQw=
+		</data>
+		<key>flutter_assets/fonts/Poppins/Poppins-Regular.ttf</key>
+		<data>
+		9oFk7HlAbMWMT4nBNopsaurMa8s=
 		</data>
 		<key>flutter_assets/isolate_snapshot_data</key>
 		<data>
@@ -30,7 +154,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		TQQ2/fhH8UzOnGTXVbAqmRyatOw=
+		BhElkGKESMXXfd3yYMauBI+kACg=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -47,33 +171,220 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oG5/OGn+vw7vp/nu5DUDoZJ4nFc=
+			dLTOQK59ll4Xb+fJCOky+2MIIOg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Sps95+7JukayebvM0TLjL1LW1VXXndpKp/O8tOm9ZR8=
+			oRQHx54koP6sRcd+TSbAEHiu6DtM3tw/3XPTbJ7Hg+s=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vKJkVIcw+LGHFnKJGwrQwCREv68=
+			hhxFm2rk6sTBECZ2PLNCi9yWMAM=
 			</data>
 			<key>hash2</key>
 			<data>
-			zX4DZFvESy3Ue3y2JvUcTsv1Whl6t3JBYotHrBZfviE=
+			aiwePY0tvTUSsHAMZa4cJKsXcQ7QQo+yos2eNPrFWfk=
 			</data>
 		</dict>
 		<key>flutter_assets/NOTICES</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lLuT93VWLTDh+UaQpgx7vBeiFqo=
+			U39RHgHPJCfDVebjW6CPtzwoAnw=
 			</data>
 			<key>hash2</key>
 			<data>
-			7cLV03FNyLsnGWA7A7/zdgHd67E6vgsotH4259Ae7Jw=
+			ziDzUlaSf42Wm9nIsoLni7S6EYwu8XkhUvRssAzThGM=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/bg_gradient.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			C5xuT6qXjwQcF8UHNXI/CE7EtcA=
+			</data>
+			<key>hash2</key>
+			<data>
+			JjI1SYuXpfy0LakAMglmLsvuzYDy7CGrHBdXYKCiQN4=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/figure_pay_logo_long.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			DfcsbxBYEndZSzunNqDjoNdPuqc=
+			</data>
+			<key>hash2</key>
+			<data>
+			w39x6RBkAniWZYCXJ8YfYImhmj1TDdIb8r7dvOJnfiU=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/FontAwesome/Custom.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8hUQnBJx4dJx5KQibQM3/OfRmGg=
+			</data>
+			<key>hash2</key>
+			<data>
+			821UK1D8vVaVQRkeRDl+gxy27vXtYsx4WEMgflNwumg=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-Black.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			oSZPVBqQmpOPZoWV1KCmi+Im74o=
+			</data>
+			<key>hash2</key>
+			<data>
+			SiNRIz2zMIbluDrXVKrhtAebXPy5hKrg9UUmjolK8S0=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-Bold.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			tedN+lXVxI+oOlDu8nB+RxMQcW0=
+			</data>
+			<key>hash2</key>
+			<data>
+			qS0ey+FiKt0VPd2gcXJcdQDIDucE93Wpordw6xzw3eo=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-ExtraBold.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			o/Jghw4o44BrlYE63DcAKRAWECI=
+			</data>
+			<key>hash2</key>
+			<data>
+			7JrxRscb36iZHrKg+W0g12G9vuMe2vI8gw08r9eEK/A=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-ExtraLight.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			xFGqZlzeCVPXVdbct3e9koXXDR8=
+			</data>
+			<key>hash2</key>
+			<data>
+			Hd5949ZVD/HomNhXy2uRF/e7FdvNTYzQr+kSq6sjIHo=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-Light.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			zBOrztpz6ODVK2EbCnO1YN7roG0=
+			</data>
+			<key>hash2</key>
+			<data>
+			MAPh7iGQHvb0/+OmV6sE3v5YP1Uw7FRhyrm8JOAQec0=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-Medium.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+1nEkT5oKSMYJl+tLzjMnuhwjbo=
+			</data>
+			<key>hash2</key>
+			<data>
+			JymYNoPk33q15L0BV1aOC6L1zA4xMwn/zeY6jO9OfBo=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-Regular.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			XU7MXHoafn2XMR5N7DZtyu1uMIg=
+			</data>
+			<key>hash2</key>
+			<data>
+			vMTmP7rUIv8r8ntDV7IkBa3M/fJjKm2eH1kYSVUIpDQ=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-SemiBold.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			PK5ubfbhvOiDmNdLiga4gZ0daX8=
+			</data>
+			<key>hash2</key>
+			<data>
+			tzwecv27E6Sz1bblcvb/jjS0q9XFX7M4YqlS/i4hNRU=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/GothicA1/GothicA1-Thin.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mTy9hPJm24oltMYJ/4lsfjr/krQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			H2OeLElTXqht6GzJIIPOCdysB6duDKNS+iWqO7I9T7o=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Jura/Jura-Bold.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ilQnzEa+J+BW7kUMUlM6TtXqPCQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			/lTYU5KR+ehhsKUP7mbU1RvNRjMautKyolKEeT/EonQ=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Jura/Jura-Light.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			l0dse9FiN3dkHCmkQ6sgj4obEZw=
+			</data>
+			<key>hash2</key>
+			<data>
+			01NNY/JmBX7cV3nyqeZH3lwg5wjTgIMOUe/zt2aLTwQ=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Jura/Jura-Medium.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mWWC5yq9WsBKzJNQgR0yEckO97w=
+			</data>
+			<key>hash2</key>
+			<data>
+			O1kvAOj+NR6UFseZlP7e3Cshs276kL+w8di+Am2krqY=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Jura/Jura-Regular.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9tDPOloR2zWq+9IU8w1S/k/5qT8=
+			</data>
+			<key>hash2</key>
+			<data>
+			94WvsrxzFynzHs5OWzBLn7mbMMq8ThZJX2dHqoHKCGE=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Jura/Jura-SemiBold.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			CwA/Zi7XcuKdgLlzBhQsl6nCz14=
+			</data>
+			<key>hash2</key>
+			<data>
+			3iqGepnHsE2Ory6Pr4FWD9YvhMc8Kjba+QcASHipywU=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -85,6 +396,149 @@
 			<key>hash2</key>
 			<data>
 			0E0I/gLatnGI9y4elyWPSg2LWYJSPgLt6hMvgJD5+rQ=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Overpass/Overpass-Black.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			HwFEHkiNGP7u2pa5CH87uoBbXMI=
+			</data>
+			<key>hash2</key>
+			<data>
+			jFGKYg7LvbRYVFMvNUMdvtCizjab7DXsObXuyxxYvv0=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Overpass/Overpass-Bold.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mTvPCAJsePpGLOvc9IuwUGu76MA=
+			</data>
+			<key>hash2</key>
+			<data>
+			A7KSCfaSklHW1souHpVofQTYvjzi/O31K397wqQEkq4=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Overpass/Overpass-ExtraBold.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8V8/40B3ypyOgozKvXojom+BcPE=
+			</data>
+			<key>hash2</key>
+			<data>
+			4Ky37HhHjWaxtfZMiT2fk77mGb+4mdYnjwJuvWlZfms=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Overpass/Overpass-ExtraLight.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			REhIM7Bfe6jC76+fz20gWc3vrhM=
+			</data>
+			<key>hash2</key>
+			<data>
+			HlLzH9AF2hqkdVp7CI5giWu7eW/90VzkqAfvzK3wTS8=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Overpass/Overpass-Light.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			wJ16zTvMsRd6N1zsLVDO3Lgn3tw=
+			</data>
+			<key>hash2</key>
+			<data>
+			xLwH2IFGhX9NeK7v05gXdYggCJhTt3q8aYRNs0UWp+E=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Overpass/Overpass-Regular.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			msmmBT6oDYhbqL3ZYd0II4Q36lA=
+			</data>
+			<key>hash2</key>
+			<data>
+			8+3hOPnt93i2+1/RLRGGXCeYgFrRjswoHIiGG4UaCl8=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Overpass/Overpass-SemiBold.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Up4lcdlCS/7LDj85NHCJnLhUxeg=
+			</data>
+			<key>hash2</key>
+			<data>
+			j+hDG45NeLkwXhwUzeum2SltGPw1jbuWVmVyLQiL65c=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Overpass/Overpass-Thin.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0Wl5iMu9s15qXpacyFUYXzA7DD0=
+			</data>
+			<key>hash2</key>
+			<data>
+			owc4+EH2i7npT228t59UqKTXFxyWXXyqdd2nm0YT704=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Poppins/Poppins-Black.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3W+GEqKsbF9+b4edkofeegck74Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			Zci7enXHF4SyFs6AefHyq6SPQtXm7NrU8xnNKFBRd78=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Poppins/Poppins-Bold.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mzU87FbVhRVKRAsriDzW93nvNeM=
+			</data>
+			<key>hash2</key>
+			<data>
+			LAfOBlj8qw8CZrq+AeEUWMESbZK11TzSf0goKq/wwg8=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Poppins/Poppins-ExtraBold.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			6TROHuOLikV79/uRFnZdq/t3HLE=
+			</data>
+			<key>hash2</key>
+			<data>
+			mjI25lWqP3kgO0mkOHFOyQNCO1kT5fF7sfj9qshAKuM=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Poppins/Poppins-Medium.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Ry0OHUFQzGmt5TPuVK6Gj63ULQw=
+			</data>
+			<key>hash2</key>
+			<data>
+			0puon3rJ5Wl70TVJJqP6ts1gr+WHiWNWj8kf5czw/Zg=
+			</data>
+		</dict>
+		<key>flutter_assets/fonts/Poppins/Poppins-Regular.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			9oFk7HlAbMWMT4nBNopsaurMa8s=
+			</data>
+			<key>hash2</key>
+			<data>
+			Sw7UWZ+03uAjczRZBWpPvKC6atS2BGq8m2tAeRQllas=
 			</data>
 		</dict>
 		<key>flutter_assets/isolate_snapshot_data</key>
@@ -102,11 +556,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TQQ2/fhH8UzOnGTXVbAqmRyatOw=
+			BhElkGKESMXXfd3yYMauBI+kACg=
 			</data>
 			<key>hash2</key>
 			<data>
-			trEp4HyZMZ8nmTwiTTmVAx7/balPjrGEn99zPrFFCoI=
+			lwjltFKZGf/+KFljbPSJ18Jq22CgyKQChBPLtZ2DwAg=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
