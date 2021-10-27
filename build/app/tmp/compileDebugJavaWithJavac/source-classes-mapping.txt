@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/example/mobile/figurepaypartner/mobile_figure_pay_partner/BuildConfig.java
+ com.example.mobile.figurepaypartner.mobile_figure_pay_partner.BuildConfig
