@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../theme.dart';
 
 class DirectDepositBanner extends StatelessWidget {
-  const DirectDepositBanner({Key? key}) : super(key: key);
+  const DirectDepositBanner({Key? key, required this.onTap}) : super(key: key);
+
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class DirectDepositBanner extends StatelessWidget {
       backgroundImage: const AssetImage('assets/bg_notification_tile.png'),
       largeLeadingImage: true,
       showArrow: false,
-      onTap: () {},
+      onTap: onTap,
     );
   }
 }
