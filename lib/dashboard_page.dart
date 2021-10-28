@@ -1,59 +1,69 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mobile_figure_pay_partner/widgets/banner.dart';
 import 'package:mobile_figure_pay_partner/widgets/recent_activity_list.dart';
 
 import '../theme.dart';
+import 'dashboard_vm.dart';
+import 'models/partner.dart';
+import 'top_providers.dart';
+import 'widgets/authorization_dialog.dart';
 
-class DashboardPage extends StatefulWidget {
-  @override
-  _DashboardPageState createState() => _DashboardPageState();
-}
+final _dashboardViewModel =
+    StateNotifierProvider.autoDispose<DashboardViewModel, AsyncValue<Partner?>>(
+        (ref) {
+  final deepLinkService = ref.watch(deepLinkServiceProvider);
+  return DashboardViewModel(deepLinkService);
+});
 
-class _DashboardPageState extends State<DashboardPage>
-    with TickerProviderStateMixin {
+class DashboardPage extends HookWidget {
   final _snackBar = SnackBar(
     content: Text('Not available in this version of the app.'),
   );
 
-  // To call the Auth Dialog:
-  // onTap: () => AuthorizationDialog.show(context,
-  //                   username: '@myusername',
-  //                   appName: 'MyApp',
-  //                   onAuthorize: () {}),
-
   @override
   Widget build(BuildContext context) {
+    final deeplinkState = useProvider(_dashboardViewModel);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.black,
         brightness: Brightness.dark,
-        bottom: _bottomAppBar(),
+        bottom: _bottomAppBar(context),
       ),
-      bottomNavigationBar: _bottomNavigationBar(),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
+      body: deeplinkState.when(data: (partner) {
+        if (partner != null) {
+          WidgetsBinding.instance?.addPostFrameCallback((_) {
+            FpDialog.showAuthorization(context,
+                username: '@myusername',
+                appName: partner.appName,
+                onAuthorize: () {});
+          });
+        }
+        return _body(context);
+      }, loading: () {
+        return Center(
           child: Column(
-            children: [
-              DirectDepositBanner(
-                onTap: () =>
-                    ScaffoldMessenger.of(context).showSnackBar(_snackBar),
-              ),
-              const SizedBox(height: 32),
-              RecentActivityList(
-                onTap: () =>
-                    ScaffoldMessenger.of(context).showSnackBar(_snackBar),
-              ),
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              CircularProgressIndicator(),
             ],
           ),
-        ),
-      ),
+        );
+      }, error: (error, _) {
+        WidgetsBinding.instance?.addPostFrameCallback((_) {
+          FpDialog.showError(context, message: error.toString());
+        });
+        return _body(context);
+      }),
+      bottomNavigationBar: _bottomNavigationBar(context),
     );
   }
 
-  PreferredSize _bottomAppBar() {
+  PreferredSize _bottomAppBar(BuildContext context) {
     return PreferredSize(
       child: Padding(
           padding: const EdgeInsets.only(bottom: 16, left: 16, right: 16),
@@ -129,17 +139,37 @@ class _DashboardPageState extends State<DashboardPage>
     );
   }
 
-  Widget _bottomNavigationBar() {
+  Widget _body(BuildContext context) {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            DirectDepositBanner(
+              onTap: () =>
+                  ScaffoldMessenger.of(context).showSnackBar(_snackBar),
+            ),
+            const SizedBox(height: 32),
+            RecentActivityList(
+              onTap: () =>
+                  ScaffoldMessenger.of(context).showSnackBar(_snackBar),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _bottomNavigationBar(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(height: 2, color: Theme.of(context).colorScheme.lightGrey),
         Container(
             color: Colors.transparent,
-            child: TabBar(
-              controller: TabController(length: 3, vsync: this),
-              indicatorColor: Colors.transparent,
-              tabs: [
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
                 _tabItem(context, 'Home', 'home_selected'),
                 _tabItem(context, 'My Account', 'account'),
                 _tabItem(context, 'Rewards', 'shop'),

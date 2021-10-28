@@ -74,8 +74,20 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_hooks",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_hooks-0.17.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_native_splash",
       "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_native_splash-1.2.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_riverpod",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_riverpod-0.14.0+3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -92,8 +104,38 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///Users/keawarozet/development/flutter/packages/flutter_web_plugins",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "freezed_annotation",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/freezed_annotation-0.14.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "hooks_riverpod",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/hooks_riverpod-0.14.0+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "image",
       "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/image-3.0.8",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "js",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "json_annotation",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/json_annotation-4.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -134,6 +176,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "plugin_platform_interface",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "riverpod",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/riverpod-0.14.0+3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/keawarozet/development/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -148,6 +202,12 @@
     {
       "name": "stack_trace",
       "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "state_notifier",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/state_notifier-0.7.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -182,8 +242,62 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "uni_links",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/uni_links-0.5.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "uni_links_platform_interface",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/uni_links_platform_interface-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "uni_links_web",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/uni_links_web-0.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "universal_io",
       "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/universal_io-2.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "url_launcher",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-6.0.10",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "url_launcher_linux",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_linux-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "url_launcher_macos",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "url_launcher_platform_interface",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_platform_interface-2.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "url_launcher_web",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-2.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "url_launcher_windows",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_windows-2.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -212,7 +326,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-10-28T14:28:08.595155Z",
+  "generated": "2021-10-28T18:37:44.247176Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }
