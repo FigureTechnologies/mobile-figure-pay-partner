@@ -17,6 +17,12 @@ class _DashboardPageState extends State<DashboardPage>
     content: Text('Not available in this version of the app.'),
   );
 
+  // To call the Auth Dialog:
+  // onTap: () => AuthorizationDialog.show(context,
+  //                   username: '@myusername',
+  //                   appName: 'MyApp',
+  //                   onAuthorize: () {}),
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

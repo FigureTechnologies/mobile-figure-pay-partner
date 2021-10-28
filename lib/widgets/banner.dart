@@ -9,7 +9,7 @@ class DirectDepositBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _FpNotificationCard(
+    return _Banner(
       leading: Image.asset('assets/money_bag.png'),
       title: Text(
         'Get \$100 with Direct Deposit',
@@ -30,8 +30,8 @@ class DirectDepositBanner extends StatelessWidget {
   }
 }
 
-class _FpNotificationCard extends StatelessWidget {
-  const _FpNotificationCard(
+class _Banner extends StatelessWidget {
+  const _Banner(
       {Key? key,
       this.leading,
       this.title,
