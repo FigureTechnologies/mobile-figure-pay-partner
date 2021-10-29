@@ -38,14 +38,18 @@ class DashboardPage extends HookWidget {
       body: deeplinkState.when(data: (partner) {
         if (partner != null) {
           WidgetsBinding.instance?.addPostFrameCallback((_) {
-            FpDialog.showAuthorization(context,
-                username: '@myusername',
-                appName: partner.appName, onAuthorize: () async {
-              final result = await DeepLinkService().launchCallbackWithUserInfo(
-                  partner.callbackUri,
-                  username: partner.username,
-                  referenceId: partner.referenceId);
-            });
+            FpDialog.showAuthorization(
+              context,
+              username: partner.username,
+              appName: partner.appName,
+              onAuthorize: () async {
+                await DeepLinkService().launchCallbackWithUserInfo(
+                    partner.callbackUri,
+                    username: partner.username,
+                    referenceId: partner.referenceId);
+                Navigator.pop(context);
+              },
+            );
           });
         }
         return _body(context);
