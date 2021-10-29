@@ -116,8 +116,26 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "global_configuration",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/global_configuration-2.0.0-nullsafety.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "hooks_riverpod",
       "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/hooks_riverpod-0.14.0+4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "http",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-4.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -166,6 +184,12 @@
     {
       "name": "path_parsing",
       "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/path_parsing-0.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "pedantic",
+      "rootUri": "file:///Users/keawarozet/development/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -326,7 +350,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-10-28T18:37:44.247176Z",
+  "generated": "2021-10-29T15:14:23.455915Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }
