@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:uni_links/uni_links.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DeepLinkService {
   static const myScheme = 'figurepaypartner';
@@ -22,5 +25,23 @@ class DeepLinkService {
       print(e);
       return null;
     }
+  }
+
+  Future<bool> launchCallbackUri(Uri callbackUri) async {
+    final uriString = callbackUri.toString();
+
+    log('canLaunch: ${await canLaunch(uriString)}');
+    log('Launching: $uriString');
+    return launch(uriString);
+  }
+
+  // https://figuretechnologies.github.io/docs-figurepay-partner-api/getting-user-account
+  Future<bool> launchCallbackWithUserInfo(Uri callbackUri,
+      {required String username, required String referenceId}) {
+    final uri = callbackUri.replace(queryParameters: {
+      'username': username,
+      'reference_id': referenceId,
+    });
+    return launchCallbackUri(uri);
   }
 }

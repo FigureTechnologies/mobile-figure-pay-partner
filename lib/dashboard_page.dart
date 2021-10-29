@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mobile_figure_pay_partner/services/deep_link_service.dart';
 import 'package:mobile_figure_pay_partner/widgets/banner.dart';
 import 'package:mobile_figure_pay_partner/widgets/recent_activity_list.dart';
 
@@ -39,8 +40,12 @@ class DashboardPage extends HookWidget {
           WidgetsBinding.instance?.addPostFrameCallback((_) {
             FpDialog.showAuthorization(context,
                 username: '@myusername',
-                appName: partner.appName,
-                onAuthorize: () {});
+                appName: partner.appName, onAuthorize: () async {
+              final result = await DeepLinkService().launchCallbackWithUserInfo(
+                  partner.callbackUri,
+                  username: partner.username,
+                  referenceId: partner.referenceId);
+            });
           });
         }
         return _body(context);

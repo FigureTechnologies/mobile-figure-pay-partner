@@ -13,7 +13,6 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
   }
 
   final DeepLinkService _deepLinkService;
-  // final FlowController<OrderFlowState> _flowState;
   StreamSubscription? _streamSubscription;
 
   @override
@@ -44,6 +43,7 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
       final accountId = _getAccountIdFromUri(uri);
       final callbackUri = _getCallbackUri(deepLinkUri: uri);
       final appName = GlobalConfiguration().getValue('app_name');
+      final username = GlobalConfiguration().getValue('username');
       final referenceId = GlobalConfiguration().getValue('reference_id');
       if (accountId == null) {
         state = AsyncError('Malformed Uri: Could not retrieve account_id');
@@ -52,6 +52,9 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
       } else if (appName == null) {
         state = AsyncError(
             'Incorrect config:\nBe sure to include the key \'app_name\' inside the file:\nlib/config/config.dart');
+      } else if (username == null) {
+        state = AsyncError(
+            'Incorrect config:\nBe sure to include the key \'username\' inside the file:\nlib/config/config.dart');
       } else if (referenceId == null) {
         state = AsyncError(
             'Incorrect config:\nBe sure to include the key \'reference_id\' inside the file:\nlib/config/config.dart');
@@ -60,6 +63,7 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
             accountId: accountId,
             callbackUri: callbackUri,
             appName: appName,
+            username: username,
             referenceId: referenceId));
       }
     } else {
