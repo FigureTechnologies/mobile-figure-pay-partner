@@ -27,47 +27,36 @@ class DashboardPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final deeplinkState = useProvider(_dashboardViewModel);
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.black,
         brightness: Brightness.dark,
         bottom: _bottomAppBar(context),
       ),
-      body: deeplinkState.when(data: (partner) {
-        if (partner != null) {
-          WidgetsBinding.instance?.addPostFrameCallback((_) {
-            FpDialog.showAuthorization(
-              context,
-              username: partner.username,
-              appName: partner.appName,
-              onAuthorize: () async {
-                await DeepLinkService().launchCallbackWithUserInfo(
-                    partner.callbackUri,
-                    username: partner.username,
-                    referenceId: partner.referenceId);
-                Navigator.pop(context);
-              },
-            );
-          });
-        }
-        return _body(context);
-      }, loading: () {
-        return Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: const [
-              CircularProgressIndicator(),
-            ],
-          ),
-        );
-      }, error: (error, _) {
-        WidgetsBinding.instance?.addPostFrameCallback((_) {
-          FpDialog.showError(context, message: error.toString());
-        });
-        return _body(context);
-      }),
+      body: ProviderListener<AsyncValue<Partner?>>(
+          onChange: (context, partner) async {
+            if (partner.data != null) {
+              if (partner is AsyncData) {
+                FpDialog.showAuthorization(
+                  context,
+                  username: partner.data!.value!.username,
+                  appName: partner.data!.value!.appName,
+                  onAuthorize: () async {
+                    await DeepLinkService().launchCallbackWithUserInfo(
+                        partner.data!.value!.callbackUri,
+                        username: partner.data!.value!.username,
+                        referenceId: partner.data!.value!.referenceId);
+                    Navigator.pop(context);
+                  },
+                );
+              } else if (partner is AsyncError) {
+                FpDialog.showError(context,
+                    message: partner.data!.value!.toString());
+              }
+            }
+          },
+          provider: _dashboardViewModel,
+          child: _body(context)),
       bottomNavigationBar: _bottomNavigationBar(context),
     );
   }

@@ -26,6 +26,11 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
       _onData,
       onError: (error) => state = AsyncError(error),
     );
+
+    final initialUri = await DeepLinkService().initialUri;
+    if (initialUri != null) {
+      _onData(initialUri);
+    }
   }
 
   Future<void> _onData(Uri? uri) async {
