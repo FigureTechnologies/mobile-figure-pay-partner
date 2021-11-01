@@ -3,9 +3,11 @@ Figure Pay Partner is a mobile application built with the purpose of testing dee
 
 Figure Pay Partner mirrors the Figure Pay app but with limited functionality. Upon running Figure Pay Partner you will be taken a dashboard filled with dummy data simulating a logged in user. 
 
-![Dashboard](https://github.com/FigureTechnologies/mobile-figure-pay-partner/blob/main/screenshots/authorization.png)
+<img src="https://github.com/FigureTechnologies/mobile-figure-pay-partner/blob/main/screenshots/dashboard.png" alt="Dashboard" style="width:200px;">
 
 Deeplinking to Figure Pay Partner with the correct `path` and `query_parameters` will result in a dialog pop up asking the user to authorize the use of sharing data with the app that issued the deeplink. Selecting **Authorize** will call the `callback_uri` passed through the original deeplink resulting in a deeplink back to the original app.
+
+<img src="https://github.com/FigureTechnologies/mobile-figure-pay-partner/blob/main/screenshots/authorization.png" alt="authorization" style="width:200px;">
 
 Trying to deeplink to Figure Pay Partner with an incorrect `path` or `query_parameters` will result in a dialog pop up with details of the error.
 
@@ -58,7 +60,7 @@ The callback deeplink is what Figure Pay Partner and Figure Pay use to deeplink 
 This callback will take the form of:\
 `{CALLBACK_URI}?reference_uuid={REFERENCE_UUID}`
 - `CALLBACK_URI` is the same `callback_uri={CALLBACK_URI}` passed in [Figure Pay Partner Deeplink](#figure-pay-partner-deeplink) and [Figure Pay Deeplink](#figure-pay-deeplink).
-- `reference_uuid` is the unique identifier passed back by Figure Pay which is used to retrieve the secure account information for a specific user. In Figure Pay Partner `reference_uuid` is set inside of config.dart. More details can be found in the [Configuration](#configuration) section.
+- `reference_uuid` is the unique identifier passed back by Figure Pay which is used to retrieve the secure account information for a specific user. In Figure Pay Partner `reference_uuid` is set inside of [config.dart](https://github.com/FigureTechnologies/mobile-figure-pay-partner/blob/main/lib/config/config.dart). More details can be found in the [Configuration](#configuration) section.
 ## A Note about Hot Reloading
 While hot reloading is a powerful tool used with Flutter, it can cause certain issues to arise with the state management system used to code Figure Pay Partner. We advise refraining from hot reloading when building and running Figure Pay Partner to avoid any unintended interactions.
 # Transition to Figure Pay
