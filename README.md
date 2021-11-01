@@ -29,7 +29,7 @@ If unable to setup a development environment using Flutter, please contact us an
 # Getting started
 Once your Flutter development environment has been configured and `flutter doctor -v` checks out, you are ready to run the Figure Pay Partner app on either a physical or simulated/emulated device. Be sure to run Figure Pay Partner on the same device as the app you are attempting to deeplink from.
 ## Configuration
-A configuration file for Figure Pay Partner is located at `lib/config/config.dart`. The values in the configuration file are non-essential to running the app (*however you will be unable to deeplink if a value is not supplied for each key*). These are *quality-of-life* values use to make the simulated experience more realistic. When finally deeplinking to Figure Pay, these values found in `config.dart` will automatically be determined based on user information and the `reference_uuid` paramenter in the deeplink. Adjust the configuration file for a better experience.
+A configuration file for Figure Pay Partner is located at `lib/config/config.dart`. The values in the configuration file are non-essential to running the app (*however you will be unable to deeplink if a value is not supplied for each key*). These are *quality-of-life* values used to make the simulated experience more realistic. When finally deeplinking to Figure Pay, these values found in `config.dart` will automatically be determined based on user information and the `account_uuid` paramenter in the deeplink. Adjust the configuration file for a better experience.
 
 Be sure to edit these values before running the Figure Pay Partner app. If you edit these values while the app is running and attempt to hot reload, the values will not change.
 - `app_name` is the name of the app you are deeplinking from. This is the name of your app, not Figure Pay Partner. This is initially set to the value `Partner App`.
@@ -59,7 +59,7 @@ When your testing with Figure Pay Partner is complete and you are ready to deepl
 The `path` and `query_parameters`, however, will remain the same.
 
 ## Callback Deeplink
-The callback deeplink is what Figure Pay Partner and Figure Pay use to deeplink back to the original app; your app. This is provided to us in your initial deeplink `query_parameters`: `callback_uri`. When we launch this `callback_uri` we also append a `query_paramenters` of our own consisting of a `reference_uuid`. 
+The callback deeplink is what Figure Pay Partner and Figure Pay use to deeplink back to the original app; your app. This is provided to us in your initial deeplink as `callback_uri`. When we launch this `callback_uri` we also append `query_paramenters` of our own consisting of a `reference_uuid`. 
 
 This callback will take the form of:\
 `{CALLBACK_URI}?reference_uuid={REFERENCE_UUID}`
