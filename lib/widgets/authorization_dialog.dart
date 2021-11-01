@@ -65,7 +65,7 @@ class FpDialog {
       context,
       title: 'Authorize $appName',
       description:
-          'Continue to allow us to share your username $username with $appName to transfer cash into your pay account.',
+          'Allow us to share your username $username with $appName to transfer cash into your pay account',
       bottom: Padding(
         padding: const EdgeInsets.all(8),
         child: Column(

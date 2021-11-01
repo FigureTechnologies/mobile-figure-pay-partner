@@ -45,31 +45,26 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
     state = const AsyncLoading();
 
     if (uri.path.startsWith('/figurepaypartner/getUser')) {
-      final accountId = _getAccountIdFromUri(uri);
+      final accountUuid = _getAccountUuidFromUri(uri);
       final callbackUri = _getCallbackUri(deepLinkUri: uri);
       final appName = GlobalConfiguration().getValue('app_name');
-      final username = GlobalConfiguration().getValue('username');
-      final referenceId = GlobalConfiguration().getValue('reference_id');
-      if (accountId == null) {
-        state = AsyncError('Malformed Uri: Could not retrieve account_id');
+      final referenceUuid = GlobalConfiguration().getValue('reference_uuid');
+      if (accountUuid == null) {
+        state = AsyncError('Malformed Uri: Could not retrieve account_uuid');
       } else if (callbackUri == null) {
         state = AsyncError('Malformed Uri: Could not retrieve callback_uri');
       } else if (appName == null) {
         state = AsyncError(
             'Incorrect config:\nBe sure to include the key \'app_name\' inside the file:\nlib/config/config.dart');
-      } else if (username == null) {
+      } else if (referenceUuid == null) {
         state = AsyncError(
-            'Incorrect config:\nBe sure to include the key \'username\' inside the file:\nlib/config/config.dart');
-      } else if (referenceId == null) {
-        state = AsyncError(
-            'Incorrect config:\nBe sure to include the key \'reference_id\' inside the file:\nlib/config/config.dart');
+            'Incorrect config:\nBe sure to include the key \'reference_uuid\' inside the file:\nlib/config/config.dart');
       } else {
         state = AsyncData(Partner(
-            accountId: accountId,
+            accountUuid: accountUuid,
             callbackUri: callbackUri,
             appName: appName,
-            username: username,
-            referenceId: referenceId));
+            referenceUuid: referenceUuid));
       }
     } else {
       state = AsyncError('Malformed Uri: Incorrect path');
@@ -88,7 +83,7 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
     return callbackUri;
   }
 
-  String? _getAccountIdFromUri(Uri uri) {
-    return uri.queryParameters['account_id'];
+  String? _getAccountUuidFromUri(Uri uri) {
+    return uri.queryParameters['account_uuid'];
   }
 }

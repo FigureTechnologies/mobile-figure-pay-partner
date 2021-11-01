@@ -39,13 +39,12 @@ class DashboardPage extends HookWidget {
               if (partner is AsyncData) {
                 FpDialog.showAuthorization(
                   context,
-                  username: partner.data!.value!.username,
+                  username: '@annie',
                   appName: partner.data!.value!.appName,
                   onAuthorize: () async {
                     await DeepLinkService().launchCallbackWithUserInfo(
                         partner.data!.value!.callbackUri,
-                        username: partner.data!.value!.username,
-                        referenceId: partner.data!.value!.referenceId);
+                        referenceUuid: partner.data!.value!.referenceUuid);
                     Navigator.pop(context);
                   },
                 );

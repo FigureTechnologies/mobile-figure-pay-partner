@@ -37,10 +37,9 @@ class DeepLinkService {
 
   // https://figuretechnologies.github.io/docs-figurepay-partner-api/getting-user-account
   Future<bool> launchCallbackWithUserInfo(Uri callbackUri,
-      {required String username, required String referenceId}) {
+      {required String referenceUuid}) {
     final uri = callbackUri.replace(queryParameters: {
-      'username': username,
-      'reference_id': referenceId,
+      'reference_uuid': referenceUuid,
     });
     return launchCallbackUri(uri);
   }

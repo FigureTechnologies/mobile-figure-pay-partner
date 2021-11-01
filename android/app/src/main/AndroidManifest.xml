@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mobile.figurepaypartner.mobile_figure_pay_partner">
    <application
-        android:label="mobile_figure_pay_partner"
+        android:label="Figure Pay Partner"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

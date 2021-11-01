@@ -1,14 +1,12 @@
 class Partner {
-  final String accountId;
+  final String accountUuid;
   final Uri callbackUri;
   final String appName;
-  final String referenceId;
-  final String username;
+  final String referenceUuid;
 
   Partner(
-      {required this.accountId,
+      {required this.accountUuid,
       required this.callbackUri,
       required this.appName,
-      required this.username,
-      required this.referenceId});
+      required this.referenceUuid});
 }
