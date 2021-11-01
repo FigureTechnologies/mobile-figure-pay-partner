@@ -7,6 +7,8 @@ import 'package:mobile_figure_pay_partner/models/partner.dart';
 
 import 'services/deep_link_service.dart';
 
+/// ViewModel handles the interactions between UI and deeplinks. Through the use of states,
+/// we are able to communicate with the UI when a widget needs to be updated or shown.
 class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
   DashboardViewModel(this._deepLinkService) : super(AsyncValue.data(null)) {
     setup();
@@ -21,20 +23,22 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
     super.dispose();
   }
 
+  // Setups up our deeplink service to listen for incoming deeplinks
   void setup() async {
     _streamSubscription = _deepLinkService.linkStream.listen(
       _onData,
       onError: (error) => state = AsyncError(error),
     );
 
+    // Used to catch a deeplink that was called if the app was not already open
     final initialUri = await DeepLinkService().initialUri;
     if (initialUri != null) {
       _onData(initialUri);
     }
   }
 
+  // Used to determine the state of the view model when data is received from a deeplink
   Future<void> _onData(Uri? uri) async {
-    // Use the uri and warn the user, if it is not correct
     print('_onData: $uri');
 
     if (uri == null) {
@@ -45,10 +49,13 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
     state = const AsyncLoading();
 
     if (uri.path.startsWith('/figurepaypartner/getUser')) {
+      // parse query parameters
       final accountUuid = _getAccountUuidFromUri(uri);
       final callbackUri = _getCallbackUri(deepLinkUri: uri);
+      // retrieve config values
       final appName = GlobalConfiguration().getValue('app_name');
       final referenceUuid = GlobalConfiguration().getValue('reference_uuid');
+
       if (accountUuid == null) {
         state = AsyncError('Malformed Uri: Could not retrieve account_uuid');
       } else if (callbackUri == null) {
@@ -60,6 +67,8 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
         state = AsyncError(
             'Incorrect config:\nBe sure to include the key \'reference_uuid\' inside the file:\nlib/config/config.dart');
       } else {
+        // query parameters and config values have been successfully parsed
+        // we set the state and pass the model housing our data to the UI (dashboard_page)
         state = AsyncData(Partner(
             accountUuid: accountUuid,
             callbackUri: callbackUri,

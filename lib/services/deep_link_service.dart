@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:uni_links/uni_links.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+/// Service for handling deeplinks
 class DeepLinkService {
   static const myScheme = 'figurepaypartner';
 
@@ -10,13 +11,12 @@ class DeepLinkService {
 
   bool initialLinkHandled = false;
 
+  // Used to retrieve the initial uri if the deeplink is called when the app is not already open
   Future<Uri?> get initialUri async {
     if (initialLinkHandled) return null;
     initialLinkHandled = true;
 
     try {
-      // Use the uri and warn the user, if it is not correct,
-      // but keep in mind it could be `null`.
       final initialUri = await getInitialUri();
       print('initialUri: $initialUri');
       return initialUri;

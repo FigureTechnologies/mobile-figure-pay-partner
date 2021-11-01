@@ -1,3 +1,4 @@
+/// Responsible for holding data related to deeplinks and their callbacks
 class Partner {
   final String accountUuid;
   final Uri callbackUri;

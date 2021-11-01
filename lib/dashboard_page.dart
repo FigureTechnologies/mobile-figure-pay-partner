@@ -21,6 +21,7 @@ final _dashboardViewModel =
 });
 
 class DashboardPage extends HookWidget {
+  // Used to inform of non-functional elements
   final _snackBar = SnackBar(
     content: Text('Not available in this version of the app.'),
   );
@@ -33,15 +34,21 @@ class DashboardPage extends HookWidget {
         brightness: Brightness.dark,
         bottom: _bottomAppBar(context),
       ),
+      // When a deeplink has been launched from another app and its parameters have been
+      // processed by the _dashboardViewModel, the _dashboardViewModel's state will be updated.
+      // The UI is then updated here according to the new state. This is handled by the ProviderListener
       body: ProviderListener<AsyncValue<Partner?>>(
           onChange: (context, partner) async {
             if (partner.data != null) {
               if (partner is AsyncData) {
+                // A deeplink has been launched and we were able to successfully parse its parameters
+                // So now we can show the dialog pop up to allow user authorization
                 FpDialog.showAuthorization(
                   context,
                   username: '@annie',
                   appName: partner.data!.value!.appName,
                   onAuthorize: () async {
+                    // Launch the callbackUri if the users taps on Authorize
                     await DeepLinkService().launchCallbackWithUserInfo(
                         partner.data!.value!.callbackUri,
                         referenceUuid: partner.data!.value!.referenceUuid);
@@ -49,6 +56,7 @@ class DashboardPage extends HookWidget {
                   },
                 );
               } else if (partner is AsyncError) {
+                // Show the error received from trying to parse the deeplink
                 FpDialog.showError(context,
                     message: partner.data!.value!.toString());
               }
@@ -60,6 +68,7 @@ class DashboardPage extends HookWidget {
     );
   }
 
+  // Displays mock user data
   PreferredSize _bottomAppBar(BuildContext context) {
     return PreferredSize(
       child: Padding(
@@ -136,6 +145,7 @@ class DashboardPage extends HookWidget {
     );
   }
 
+  // Displays limited functional dashboard
   Widget _body(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
@@ -157,6 +167,7 @@ class DashboardPage extends HookWidget {
     );
   }
 
+  // Displays limited functional navigation bar
   Widget _bottomNavigationBar(BuildContext context) {
     return Column(
       mainAxisSize: MainAxisSize.min,

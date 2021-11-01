@@ -7,7 +7,10 @@ import 'package:mobile_figure_pay_partner/theme.dart';
 import 'config/config.dart';
 
 void main() {
+  // Used to load the config file
   GlobalConfiguration().loadFromMap(config);
+
+  // entry point for Figure Pay Partner
   runApp(ProviderScope(child: MyApp()));
 }
 
