@@ -3,11 +3,15 @@ Figure Pay Partner is a mobile application built with the purpose of testing dee
 
 Figure Pay Partner mirrors the Figure Pay app but with limited functionality. Upon running Figure Pay Partner you will be taken a dashboard filled with dummy data simulating a logged in user. 
 
-<img src="https://github.com/FigureTechnologies/mobile-figure-pay-partner/blob/main/screenshots/dashboard.png" alt="Dashboard" style="width:200px;">
+<p align="center">
+    <img src="https://github.com/FigureTechnologies/mobile-figure-pay-partner/blob/main/screenshots/dashboard.png" alt="Dashboard" style="width:200px;">
+</p>
 
 Deeplinking to Figure Pay Partner with the correct `path` and `query_parameters` will result in a dialog pop up asking the user to authorize the use of sharing data with the app that issued the deeplink. Selecting **Authorize** will call the `callback_uri` passed through the original deeplink resulting in a deeplink back to the original app.
 
-<img src="https://github.com/FigureTechnologies/mobile-figure-pay-partner/blob/main/screenshots/authorization.png" alt="authorization" style="width:200px;">
+<p align="center">
+    <img src="https://github.com/FigureTechnologies/mobile-figure-pay-partner/blob/main/screenshots/authorization.png" alt="authorization" style="width:200px;">
+</p>
 
 Trying to deeplink to Figure Pay Partner with an incorrect `path` or `query_parameters` will result in a dialog pop up with details of the error.
 
