@@ -3,6 +3,8 @@ Figure Pay Partner is a mobile application built with the purpose of testing dee
 
 Figure Pay Partner mirrors the Figure Pay app but with limited functionality. Upon running Figure Pay Partner you will be taken a dashboard filled with dummy data simulating a logged in user. 
 
+![Dashboard](https://github.com/FigureTechnologies/mobile-figure-pay-partner/blob/main/screenshots/authorization.png)
+
 Deeplinking to Figure Pay Partner with the correct `path` and `query_parameters` will result in a dialog pop up asking the user to authorize the use of sharing data with the app that issued the deeplink. Selecting **Authorize** will call the `callback_uri` passed through the original deeplink resulting in a deeplink back to the original app.
 
 Trying to deeplink to Figure Pay Partner with an incorrect `path` or `query_parameters` will result in a dialog pop up with details of the error.
@@ -31,18 +33,18 @@ Details about our retrieving user account metadata for Figure Pay can be found [
 `{scheme}://{host}/{path}?{query_parameters}`\
 Figure Pay and Figure Pay Partner use a different `scheme` and `host` to distinguish between the two apps, but use the same `path` and `query_parameters`.
 ### Figure Pay Deeplink
-`figurepay://figure.com/figurepay/getUser?callback_uri={CALLBACK_URI}?account_uuid={ACCOUNT_UUID}`
+`figurepay://figure.com/figurepay/getUser?callback_uri={CALLBACK_URI}&account_uuid={ACCOUNT_UUID}`
 - `scheme`: figurepay
 - `host`: figure.co<span>m
 - `path`: figurepay/getUser
-- `query_parameters`: callback_uri={CALLBACK_URI}?account_uuid={ACCOUNT_UUID}
+- `query_parameters`: callback_uri={CALLBACK_URI}&account_uuid={ACCOUNT_UUID}
 
 ### Figure Pay Partner Deeplink
-`figurepaypartner://figurepaypartner.com/figurepay/getUser?callback_uri={CALLBACK_URI}?account_uuid={ACCOUNT_UUID}`
+`figurepaypartner://figurepaypartner.com/figurepay/getUser?callback_uri={CALLBACK_URI}&account_uuid={ACCOUNT_UUID}`
 - `scheme`: figurepaypartner
 - `host`: figurepaypartner.co<span>m
 - `path`: figurepay/getUser
-- `query_parameters`: callback_uri={CALLBACK_URI}?account_uuid={ACCOUNT_UUID}
+- `query_parameters`: callback_uri={CALLBACK_URI}&account_uuid={ACCOUNT_UUID}
 ## Scheme and Host
 As mentioned in [Deeplinking](#deeplinking), Figure Pay and Figure Pay Partner use a different `sceme` and `host`. This means that while testing deeplinking to and from Figure Pay Partner, you will need to use the `scheme` and `host` listed in [Figure Pay Partner Deeplink](#figure-pay-partner-deeplink).
 
