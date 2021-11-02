@@ -52,14 +52,14 @@ Figure Pay and Figure Pay Partner use a different `scheme` and `host` to disting
 - `path`: figurepay/getUser
 - `query_parameters`: callback_uri={CALLBACK_URI}&account_uuid={ACCOUNT_UUID}
 ## Scheme and Host
-As mentioned in [Deeplinking](#deeplinking), Figure Pay and Figure Pay Partner use a different `sceme` and `host`. This means that while testing deeplinking to and from Figure Pay Partner, you will need to use the `scheme` and `host` listed in [Figure Pay Partner Deeplink](#figure-pay-partner-deeplink).
+As mentioned in [Deeplinking](#deeplinking), Figure Pay and Figure Pay Partner use a different `scheme` and `host`. This means that while testing deeplinking to and from Figure Pay Partner, you will need to use the `scheme` and `host` listed in [Figure Pay Partner Deeplink](#figure-pay-partner-deeplink).
 
 When your testing with Figure Pay Partner is complete and you are ready to deeplink to Figure Pay, you will need to change your `scheme` and `host` to match what is listed in [Figure Pay Deeplink](#figure-pay-deeplink).
 
 The `path` and `query_parameters`, however, will remain the same.
 
 ## Callback Deeplink
-The callback deeplink is what Figure Pay Partner and Figure Pay use to deeplink back to the original app; your app. This is provided to us in your initial deeplink as `callback_uri`. When we launch this `callback_uri` we also append `query_paramenters` of our own consisting of a `reference_uuid`. 
+The callback deeplink is what Figure Pay Partner and Figure Pay use to deeplink back to the original app (your app). This is provided to us in your initial deeplink as `callback_uri`. When we launch this `callback_uri` we also append `query_paramenters` of our own consisting of a `reference_uuid`. 
 
 This callback will take the form of:\
 `{CALLBACK_URI}?reference_uuid={REFERENCE_UUID}`
