@@ -4,5 +4,5 @@
 /// Do not leave these values empty
 final Map<String, String> config = {
   'app_name': 'Partner App',
-  'reference_uuid': '123456789',
+  'reference_uuid': '253f014a-9ab2-47ee-a2d2-7bc0fc1d896b',
 };
