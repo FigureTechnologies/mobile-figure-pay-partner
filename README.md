@@ -28,6 +28,13 @@ If unable to setup a development environment using Flutter, please contact us an
 
 # Getting started
 Once your Flutter development environment has been configured and `flutter doctor -v` checks out, you are ready to run the Figure Pay Partner app on either a physical or simulated/emulated device. Be sure to run Figure Pay Partner on the same device as the app you are attempting to deeplink from.
+
+## Bundle Identifier
+In order to run this on an iOS device, you will need to go into Xcode and change the bundle identifier to be something unique.
+
+The current bundle identifier is set to: `com.example.mobile.figurepaypartner.mobileFigurePayPartner`
+
+Changing that should allow for the creation of a valid provisioning profile using your own Apple developer account.
 ## Configuration
 A configuration file for Figure Pay Partner is located at `lib/config/config.dart`. The values in the configuration file are non-essential to running the app (*however you will be unable to deeplink if a value is not supplied for each key*). These are *quality-of-life* values used to make the simulated experience more realistic. When finally deeplinking to Figure Pay, these values found in `config.dart` will automatically be determined based on user information and the `account_uuid` paramenter in the deeplink. Adjust the configuration file for a better experience.
 
