@@ -39,7 +39,7 @@ Changing that should allow for the creation of a valid provisioning profile usin
 ## iOS Device Version
 If using an iOS device running on iOS 13, make sure it is updated to 13.4 at least. 
 ## Configuration
-A configuration file for Figure Pay Partner is located at `lib/config/config.dart`. The values in the configuration file are non-essential to running the app (*however you will be unable to deeplink if a value is not supplied for each key*). These are *quality-of-life* values used to make the simulated experience more realistic. When finally deeplinking to Figure Pay, these values found in `config.dart` will automatically be determined based on user information and the `account_uuid` paramenter in the deeplink. Adjust the configuration file for a better experience.
+A configuration file for Figure Pay Partner is located at `lib/config/config.dart`. The values in the configuration file are non-essential to running the app (*however you will be unable to deeplink if a value is not supplied for each key*). These are *quality-of-life* values used to make the simulated experience more realistic. When finally deeplinking to Figure Pay, these values found in `config.dart` will automatically be determined based on user information and the `identity_id` paramenter in the deeplink. Adjust the configuration file for a better experience.
 
 Be sure to edit these values before running the Figure Pay Partner app. If you edit these values while the app is running and attempt to hot reload, the values will not change.
 - `app_name` is the name of the app you are deeplinking from. This is the name of your app, not Figure Pay Partner. This is initially set to the value `Partner App`.
@@ -49,18 +49,18 @@ Details about our retrieving user account metadata for Figure Pay can be found [
 `{scheme}://{host}/{path}?{query_parameters}`\
 Figure Pay and Figure Pay Partner use a different `scheme` and `host` to distinguish between the two apps, but use the same `path` and `query_parameters`.
 ### Figure Pay Deeplink
-`figurepay://figure.com/figurepay/getUser?callback_uri={CALLBACK_URI}&account_uuid={ACCOUNT_UUID}`
+`figurepay://figure.com/figurepay/getUser?callback_uri={CALLBACK_URI}&identity_id={PARTNER_IDENTITY_UUID}`
 - `scheme`: figurepay
 - `host`: figure.co<span>m
 - `path`: figurepay/getUser
-- `query_parameters`: callback_uri={CALLBACK_URI}&account_uuid={ACCOUNT_UUID}
+- `query_parameters`: callback_uri={CALLBACK_URI}&identity_id={PARTNER_IDENTITY_UUID}
 
 ### Figure Pay Partner Deeplink
-`figurepaypartner://figurepaypartner.com/figurepay/getUser?callback_uri={CALLBACK_URI}&account_uuid={ACCOUNT_UUID}`
+`figurepaypartner://figurepaypartner.com/figurepay/getUser?callback_uri={CALLBACK_URI}&identity_id={PARTNER_IDENTITY_UUID}`
 - `scheme`: figurepaypartner
 - `host`: figurepaypartner.co<span>m
 - `path`: figurepay/getUser
-- `query_parameters`: callback_uri={CALLBACK_URI}&account_uuid={ACCOUNT_UUID}
+- `query_parameters`: callback_uri={CALLBACK_URI}&identity_id={PARTNER_IDENTITY_UUID}
 ## Scheme and Host
 As mentioned in [Deeplinking](#deeplinking), Figure Pay and Figure Pay Partner use a different `scheme` and `host`. This means that while testing deeplinking to and from Figure Pay Partner, you will need to use the `scheme` and `host` listed in [Figure Pay Partner Deeplink](#figure-pay-partner-deeplink).
 
@@ -78,8 +78,8 @@ This callback will take the form of:\
 ## A Note about Hot Reloading
 While hot reloading is a powerful tool used with Flutter, it can cause certain issues to arise with the state management system used to code Figure Pay Partner. We advise refraining from hot reloading when building and running Figure Pay Partner to avoid any unintended interactions.
 # Transition to Figure Pay
-In order to transition to Figure Pay from Figure Pay Partner after testing has concluded, you will need to [change the scheme and host](#change-the-scheme-and-host) and [provide a valid `account_uuid`](#provide-a-valid-account-uuid).
+In order to transition to Figure Pay from Figure Pay Partner after testing has concluded, you will need to [change the scheme and host](#change-the-scheme-and-host) and [provide a valid `identity_id`](#provide-a-valid-identity-id).
 ## Change the Scheme and Host
 Since Figure Pay and Figure Pay Partner use a different `scheme` and `host` for their deeplink, you will need to follow the instructions outlined [here](#scheme-and-host) to choose the correct `scheme` and `host` for Figure Pay.
-## Provide a Valid `account_uuid`
-Even though Figure Pay Partner does not use the `account_uuid` to retrieve its mock data, we still recommend using the `account_uuid` provided to you by Figure as this will be necessary for Figure Pay.
+## Provide a Valid `identity_id`
+Even though Figure Pay Partner does not use the `identity_id` to retrieve its mock data, we still recommend using the `identity_id` provided to you by Figure as this will be necessary for Figure Pay.

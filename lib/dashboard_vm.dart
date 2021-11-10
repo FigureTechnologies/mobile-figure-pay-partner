@@ -50,14 +50,14 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
 
     if (uri.path.startsWith('/figurepaypartner/getUser')) {
       // parse query parameters
-      final accountUuid = _getAccountUuidFromUri(uri);
+      final identityUuid = _getIdentityUuidFromUri(uri);
       final callbackUri = _getCallbackUri(deepLinkUri: uri);
       // retrieve config values
       final appName = GlobalConfiguration().getValue('app_name');
       final referenceUuid = GlobalConfiguration().getValue('reference_uuid');
 
-      if (accountUuid == null) {
-        state = AsyncError('Malformed Uri: Could not retrieve account_uuid');
+      if (identityUuid == null) {
+        state = AsyncError('Malformed Uri: Could not retrieve identity_id');
       } else if (callbackUri == null) {
         state = AsyncError('Malformed Uri: Could not retrieve callback_uri');
       } else if (appName == null) {
@@ -70,7 +70,7 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
         // query parameters and config values have been successfully parsed
         // we set the state and pass the model housing our data to the UI (dashboard_page)
         state = AsyncData(Partner(
-            accountUuid: accountUuid,
+            identityUuid: identityUuid,
             callbackUri: callbackUri,
             appName: appName,
             referenceUuid: referenceUuid));
@@ -92,7 +92,7 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
     return callbackUri;
   }
 
-  String? _getAccountUuidFromUri(Uri uri) {
-    return uri.queryParameters['account_uuid'];
+  String? _getIdentityUuidFromUri(Uri uri) {
+    return uri.queryParameters['identity_id'];
   }
 }
