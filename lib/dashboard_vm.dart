@@ -48,7 +48,7 @@ class DashboardViewModel extends StateNotifier<AsyncValue<Partner?>> {
 
     state = const AsyncLoading();
 
-    if (uri.path.startsWith('/figurepaypartner/getUser')) {
+    if (uri.path.startsWith('/figurepay/getUser')) {
       // parse query parameters
       final identityUuid = _getIdentityUuidFromUri(uri);
       final callbackUri = _getCallbackUri(deepLinkUri: uri);
