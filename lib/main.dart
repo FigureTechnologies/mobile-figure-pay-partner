@@ -7,6 +7,9 @@ import 'package:mobile_figure_pay_partner/theme.dart';
 import 'config/config.dart';
 
 void main() {
+  // Ensures that configuation is valid. Throws exception otherwise.
+  validateConfig();
+
   // Used to load the config file
   GlobalConfiguration().loadFromMap(config);
 

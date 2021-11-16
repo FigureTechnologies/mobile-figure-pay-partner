@@ -43,7 +43,7 @@ A configuration file for Figure Pay Partner is located at `lib/config/config.dar
 
 Be sure to edit these values before running the Figure Pay Partner app. If you edit these values while the app is running and attempt to hot reload, the values will not change.
 - `app_name` is the name of the app you are deeplinking from. This is the name of your app, not Figure Pay Partner. This is initially set to the value `Partner App`.
-- `reference_uuid` is the unique identifier passed back by Figure Pay which is used to retrieve the secure account information for a specific user. The `reference_uuid` returned by Figure Pay Partner will be dummy data. This is initially set to the value `253f014a-9ab2-47ee-a2d2-7bc0fc1d896b`.
+- `reference_uuid` is the unique identifier passed back by Figure Pay which is used to retrieve the secure account information for a specific user. The `reference_uuid` returned by Figure Pay Partner will be dummy data. This UUID will be provider by Figure for each partner and will need to be be added to the configuration file (`config.dart`) mentioned above.
 ## Deeplinking
 Details about our retrieving user account metadata for Figure Pay can be found [here](https://figuretechnologies.github.io/docs-figurepay-partner-api/getting-user-account). The deeplink itself can be broken up into multiple parts:\
 `{scheme}://{host}/{path}?{query_parameters}`\
