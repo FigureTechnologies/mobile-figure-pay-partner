@@ -1,8 +1,18 @@
 /// Configuration file for Figure Pay Partner
-/// Changing these values is not necessary, but recommended
 ///
 /// Do not leave these values empty
 final Map<String, String> config = {
   'app_name': 'Partner App',
-  'reference_uuid': '253f014a-9ab2-47ee-a2d2-7bc0fc1d896b',
+  'reference_uuid': '', // provided by Figure for each partner
 };
+
+void validateConfig() {
+  _validateEntry('app_name');
+  _validateEntry('reference_uuid');
+}
+
+void _validateEntry(String entry) {
+  if (config[entry]?.isEmpty ?? true) {
+    throw ('config[$entry] can not be empty');
+  }
+}
