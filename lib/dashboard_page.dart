@@ -3,19 +3,22 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mobile_figure_pay_partner/extensions/double_ext.dart';
 import 'package:mobile_figure_pay_partner/services/deep_link_service.dart';
 import 'package:mobile_figure_pay_partner/widgets/banner.dart';
 import 'package:mobile_figure_pay_partner/widgets/recent_activity_list.dart';
 
-import '../theme.dart';
 import 'dashboard_vm.dart';
-import 'widgets/authorization_dialog.dart';
+import 'fp_design/fp_design.dart';
+import 'pay_invoice_screen.dart';
 
 class DashboardPage extends HookWidget {
   // Used to inform of non-functional elements
   final _snackBar = SnackBar(
     content: Text('Not available in this version of the app.'),
   );
+
+  static const availableBalance = 2657.79;
 
   @override
   Widget build(BuildContext context) {
@@ -40,20 +43,30 @@ class DashboardPage extends HookWidget {
             } else if (event is DeepLinkGetReferenceUuidEvent) {
               // A deeplink has been launched and we were able to successfully parse its parameters
               // So now we can show the dialog pop up to allow user authorization
-              FpDialog.showAuthorization(
+              final result = await FpDialog.showConfirmation(
                 context,
-                username: '@annie',
-                appName: event.requestingApp,
-                onAuthorize: () async {
-                  // Launch the callbackUri if the users taps on Authorize
-                  await DeepLinkService().launchCallbackWithUserInfo(
-                      event.callbackUri,
-                      referenceUuid: event.referenceUuid);
-                  Navigator.pop(context);
-                },
+                title: 'Authorize ${event.requestingApp}',
+                message:
+                    'Allow us to share your username @annie with ${event.requestingApp} to transfer cash into your pay account',
+                confirmText: 'Authorize',
               );
+
+              if (result) {
+                // Launch the callbackUri if the users taps on Authorize
+                await DeepLinkService().launchCallbackWithUserInfo(
+                    event.callbackUri,
+                    referenceUuid: event.referenceUuid);
+              }
             } else if (event is DeepLinkInvoiceEvent) {
-              print('DeepLinkInvoiceEvent');
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => PayInvoiceScreen(
+                    event: event,
+                    availableBalance: availableBalance,
+                  ),
+                ),
+              );
+              print('DeepLinkInvoiceEvent: $event');
             }
           } else if (value is AsyncError) {
             // Show the error received from trying to parse the deeplink
@@ -86,7 +99,7 @@ class DashboardPage extends HookWidget {
               ),
             ),
             const SizedBox(height: 24),
-            Text('\$2,2657.79',
+            Text(availableBalance.toCurrency(),
                 style: Theme.of(context)
                     .textTheme
                     .headline1!
