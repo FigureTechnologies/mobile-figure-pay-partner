@@ -15,9 +15,10 @@ abstract class DeepLinkEvent {
 }
 
 class DeepLinkInvoiceEvent extends DeepLinkEvent {
-  final String invoiceUuid;
+  final String appName;
+  final double amount;
   final Uri callbackUri;
-  DeepLinkInvoiceEvent(this.invoiceUuid, this.callbackUri)
+  DeepLinkInvoiceEvent(this.appName, this.amount, this.callbackUri)
       : super(DeepLinkEventType.payInvoice);
 }
 
@@ -67,15 +68,19 @@ class DeepLinkService {
   }
 
   Future<DeepLinkEvent?> _eventFor({required Uri uri}) async {
-    if (uri.path.startsWith('/figurepay/invoices/')) {
-      final invoiceId = _getInvoiceIdFromUri(uri);
+    if (uri.path.startsWith('/figurepay/invoices')) {
+      // normally we would retreive merchant info (app name) & amount from an
+      // invoice id passed as a path segment
+      final appName = _getAppNameFromUri(deepLinkUri: uri);
+      final amount = _getInvoiceAmountFromUri(deepLinkUri: uri);
       final callbackUri = _getCallbackUri(deepLinkUri: uri);
-      if (invoiceId != null && callbackUri != null) {
-        return DeepLinkInvoiceEvent(invoiceId, callbackUri);
+
+      if (callbackUri != null) {
+        return DeepLinkInvoiceEvent(appName, amount, callbackUri);
       } else {
         return DeepLinkErrorEvent(
             message:
-                'Malformed Uri: Could not retrieve invoiceId and/or callback_uri');
+                'Malformed Uri: Could not retrieve app_name.amount and/or callback_uri');
       }
     } else if (uri.path.startsWith('/figurepay/getUser')) {
       final callbackUri = _getCallbackUri(deepLinkUri: uri);
@@ -160,6 +165,7 @@ class DeepLinkService {
     return launchCallbackUri(uri);
   }
 
+  // ignore: unused_element
   String? _getInvoiceIdFromUri(Uri uri) {
     if (uri.path.startsWith('/figurepay/invoices/') &&
         uri.pathSegments.length == 3) {
@@ -172,5 +178,24 @@ class DeepLinkService {
 
   String? _getIdentityUuidFromUri({required Uri deepLinkUri}) {
     return deepLinkUri.queryParameters['identity_id'];
+  }
+
+  double _getInvoiceAmountFromUri({required Uri deepLinkUri}) {
+    final strAmount = deepLinkUri.queryParameters['amount'];
+    if (strAmount != null) {
+      final amount = double.tryParse(strAmount);
+      if (amount != null) return amount;
+    }
+
+    log('Using default amount for invoice');
+    return 5.55;
+  }
+
+  String _getAppNameFromUri({required Uri deepLinkUri}) {
+    final appName = deepLinkUri.queryParameters['app_name'];
+    if (appName != null) return appName;
+
+    log('Using default app name');
+    return 'Some Merchant';
   }
 }
