@@ -67,13 +67,16 @@ class RecentActivityList extends StatelessWidget {
     );
   }
 
-  Widget _listTile(BuildContext context,
-      {required String title,
-      required String subtitle,
-      required String amount,
-      required String status,
-      required Function() onTap}) {
+  Widget _listTile(
+    BuildContext context, {
+    required String title,
+    required String subtitle,
+    required String amount,
+    required String status,
+    required Function() onTap,
+  }) {
     return ListTile(
+      dense: true,
       leading: SvgPicture.asset(
         'assets/reward.svg',
         color: Theme.of(context).colorScheme.black,
