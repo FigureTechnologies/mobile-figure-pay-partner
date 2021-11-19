@@ -9,16 +9,7 @@ import 'package:mobile_figure_pay_partner/widgets/recent_activity_list.dart';
 
 import '../theme.dart';
 import 'dashboard_vm.dart';
-import 'models/partner.dart';
-import 'top_providers.dart';
 import 'widgets/authorization_dialog.dart';
-
-final _dashboardViewModel =
-    StateNotifierProvider.autoDispose<DashboardViewModel, AsyncValue<Partner?>>(
-        (ref) {
-  final deepLinkService = ref.watch(deepLinkServiceProvider);
-  return DashboardViewModel(deepLinkService);
-});
 
 class DashboardPage extends HookWidget {
   // Used to inform of non-functional elements
@@ -37,33 +28,41 @@ class DashboardPage extends HookWidget {
       // When a deeplink has been launched from another app and its parameters have been
       // processed by the _dashboardViewModel, the _dashboardViewModel's state will be updated.
       // The UI is then updated here according to the new state. This is handled by the ProviderListener
-      body: ProviderListener<AsyncValue<Partner?>>(
-          onChange: (context, partner) async {
-            if (partner.data != null) {
-              if (partner is AsyncData) {
-                // A deeplink has been launched and we were able to successfully parse its parameters
-                // So now we can show the dialog pop up to allow user authorization
-                FpDialog.showAuthorization(
-                  context,
-                  username: '@annie',
-                  appName: partner.data!.value!.appName,
-                  onAuthorize: () async {
-                    // Launch the callbackUri if the users taps on Authorize
-                    await DeepLinkService().launchCallbackWithUserInfo(
-                        partner.data!.value!.callbackUri,
-                        referenceUuid: partner.data!.value!.referenceUuid);
-                    Navigator.pop(context);
-                  },
-                );
-              } else if (partner is AsyncError) {
-                // Show the error received from trying to parse the deeplink
-                FpDialog.showError(context,
-                    message: partner.data!.value!.toString());
-              }
+      body: ProviderListener<AsyncValue<DeepLinkEvent?>>(
+        provider: deepLinkeEventProvider,
+        onChange: (context, value) async {
+          if (value is AsyncData) {
+            final event = value.data!.value;
+            if (event == null) return;
+
+            if (event is DeepLinkErrorEvent) {
+              FpDialog.showError(context, message: event.message);
+            } else if (event is DeepLinkGetReferenceUuidEvent) {
+              // A deeplink has been launched and we were able to successfully parse its parameters
+              // So now we can show the dialog pop up to allow user authorization
+              FpDialog.showAuthorization(
+                context,
+                username: '@annie',
+                appName: event.requestingApp,
+                onAuthorize: () async {
+                  // Launch the callbackUri if the users taps on Authorize
+                  await DeepLinkService().launchCallbackWithUserInfo(
+                      event.callbackUri,
+                      referenceUuid: event.referenceUuid);
+                  Navigator.pop(context);
+                },
+              );
+            } else if (event is DeepLinkInvoiceEvent) {
+              print('DeepLinkInvoiceEvent');
             }
-          },
-          provider: _dashboardViewModel,
-          child: _body(context)),
+          } else if (value is AsyncError) {
+            // Show the error received from trying to parse the deeplink
+            FpDialog.showError(context,
+                message: (value as AsyncError).error.toString());
+          }
+        },
+        child: _body(context),
+      ),
       bottomNavigationBar: _bottomNavigationBar(context),
     );
   }
