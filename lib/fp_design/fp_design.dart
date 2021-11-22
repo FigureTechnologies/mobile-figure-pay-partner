@@ -26,3 +26,4 @@ part 'widgets/fp_spacer.dart';
 part 'widgets/fp_text.dart';
 part 'widgets/icon.dart';
 part 'widgets/radio.dart';
+part 'widgets/transfer_row.dart';

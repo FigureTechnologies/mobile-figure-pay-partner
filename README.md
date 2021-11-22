@@ -76,7 +76,7 @@ Figure Pay and Figure Pay Partner use a **different** `scheme` and `host` to dis
 
 **Managing Invoices**
 
-NOTE: - For Partner app, `invoice_uuid` is not provided in the path because the actual invoice is paid using the [Partner Simulations - Authorize Transaction]() endpoint from the calling application after returning from the Partner app (via `callback_uri`). The `callback_uri` is called when the "Pay Now" button is pressed. The `amount` (double) and `app_name` is passed instead to complete the simulated invoice authorization. This data, of course, would normally be retreived via `invoice_uuid` on the Figure Pay app. 
+NOTE: - For Partner app, `invoice_uuid` is not provided in the path because the actual invoice is paid using the [Partner Simulations - Authorize Transaction]() endpoint from the calling application after returning from the Partner app (via `callback_uri`). The `callback_uri` is called when the "Back to" button is pressed on "Transaction Successful" screen. The `amount` (double) and `app_name` is passed instead to complete the simulated invoice authorization. This data, of course, would normally be retreived via `invoice_uuid` on the Figure Pay app. 
 
 `figurepaypartner://figurepaypartner.com/figurepay/invoices/?app_name={APP_NAME}&amount={AMOUNT}&callback_uri={CALLBACK_URI}`
 - `scheme`: figurepaypartner
