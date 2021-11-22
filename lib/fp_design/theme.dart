@@ -1,5 +1,4 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+part of fp_design;
 
 class FigurePayThemeData {
   /// ----- FIGMA COLORS -----
@@ -158,7 +157,6 @@ class FigurePayThemeData {
     appBarTheme: AppBarTheme(
       color: _colorScheme.primary,
       iconTheme: IconThemeData(color: _colorScheme.onPrimary),
-      brightness: Brightness.dark,
     ),
     bottomAppBarTheme: BottomAppBarTheme(
       color: _colorScheme.primary,

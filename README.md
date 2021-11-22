@@ -45,22 +45,44 @@ Be sure to edit these values before running the Figure Pay Partner app. If you e
 - `app_name` is the name of the app you are deeplinking from. This is the name of your app, not Figure Pay Partner. This is initially set to the value `Partner App`.
 - `reference_uuid` is the unique identifier passed back by Figure Pay which is used to retrieve the secure account information for a specific user. The `reference_uuid` returned by Figure Pay Partner will be dummy data. This UUID will be provider by Figure for each partner and will need to be be added to the configuration file (`config.dart`) mentioned above.
 ## Deeplinking
-Details about our retrieving user account metadata for Figure Pay can be found [here](https://figuretechnologies.github.io/docs-figurepay-partner-api/getting-user-account). The deeplink itself can be broken up into multiple parts:\
+The deeplink itself can be broken up into multiple parts:\
 `{scheme}://{host}/{path}?{query_parameters}`\
-Figure Pay and Figure Pay Partner use a different `scheme` and `host` to distinguish between the two apps, but use the same `path` and `query_parameters`.
-### Figure Pay Deeplink
+Figure Pay and Figure Pay Partner use a **different** `scheme` and `host` to distinguish between the two apps, but use the same `path`. NOTE: `query_parameters` are the same for **Retrieving User Account Metadata** but different for **Managing Invoices**
+### Figure Pay Deeplinks
+[Retrieving User Account Metadata](https://figuretechnologies.github.io/docs-figurepay-partner-api/getting-user-account).
+
 `figurepay://figure.com/figurepay/getUser?callback_uri={CALLBACK_URI}&identity_id={PARTNER_IDENTITY_UUID}`
 - `scheme`: figurepay
 - `host`: figure.co<span>m
 - `path`: figurepay/getUser
 - `query_parameters`: callback_uri={CALLBACK_URI}&identity_id={PARTNER_IDENTITY_UUID}
 
+[Managing Invoices](https://figuretechnologies.github.io/docs-figurepay-partner-api/managing-invoices)
+
+`figurepay://figure.com/figurepay/invoices/{INVOICE_UUID}?callback_uri={CALLBACK_URI}`
+- `scheme`: figurepay
+- `host`: figure.co<span>m
+- `path`: figurepay/invoices/{INVOICE_UUID}
+- `query_parameters`: callback_uri={CALLBACK_URI}
+
 ### Figure Pay Partner Deeplink
+**Retrieving User Account Metadata**
+
 `figurepaypartner://figurepaypartner.com/figurepay/getUser?callback_uri={CALLBACK_URI}&identity_id={PARTNER_IDENTITY_UUID}`
 - `scheme`: figurepaypartner
 - `host`: figurepaypartner.co<span>m
 - `path`: figurepay/getUser
 - `query_parameters`: callback_uri={CALLBACK_URI}&identity_id={PARTNER_IDENTITY_UUID}
+
+**Managing Invoices**
+
+NOTE: - For Partner app, `invoice_uuid` is not provided in the path because the actual invoice is paid using the [Partner Simulations - Authorize Transaction]() endpoint from the calling application after returning from the Partner app (via `callback_uri`). The `callback_uri` is called when the "Pay Now" button is pressed. The `amount` (double) and `app_name` is passed instead to complete the simulated invoice authorization. This data, of course, would normally be retreived via `invoice_uuid` on the Figure Pay app. 
+
+`figurepaypartner://figurepaypartner.com/figurepay/invoices/?app_name={APP_NAME}&amount={AMOUNT}&callback_uri={CALLBACK_URI}`
+- `scheme`: figurepaypartner
+- `host`: figurepaypartner.co<span>m
+- `path`: figurepay/invoices/
+- `query_parameters`: app_name={APP_NAME}&amount={AMOUNT}&callback_uri={CALLBACK_URI}
 ## Scheme and Host
 As mentioned in [Deeplinking](#deeplinking), Figure Pay and Figure Pay Partner use a different `scheme` and `host`. This means that while testing deeplinking to and from Figure Pay Partner, you will need to use the `scheme` and `host` listed in [Figure Pay Partner Deeplink](#figure-pay-partner-deeplink).
 

@@ -3,22 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mobile_figure_pay_partner/extensions/double_ext.dart';
 import 'package:mobile_figure_pay_partner/services/deep_link_service.dart';
 import 'package:mobile_figure_pay_partner/widgets/banner.dart';
 import 'package:mobile_figure_pay_partner/widgets/recent_activity_list.dart';
 
-import '../theme.dart';
 import 'dashboard_vm.dart';
-import 'models/partner.dart';
-import 'top_providers.dart';
-import 'widgets/authorization_dialog.dart';
-
-final _dashboardViewModel =
-    StateNotifierProvider.autoDispose<DashboardViewModel, AsyncValue<Partner?>>(
-        (ref) {
-  final deepLinkService = ref.watch(deepLinkServiceProvider);
-  return DashboardViewModel(deepLinkService);
-});
+import 'fp_design/fp_design.dart';
+import 'pay_invoice_screen.dart';
 
 class DashboardPage extends HookWidget {
   // Used to inform of non-functional elements
@@ -26,44 +18,64 @@ class DashboardPage extends HookWidget {
     content: Text('Not available in this version of the app.'),
   );
 
+  static const availableBalance = 2657.79;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.black,
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         bottom: _bottomAppBar(context),
       ),
       // When a deeplink has been launched from another app and its parameters have been
       // processed by the _dashboardViewModel, the _dashboardViewModel's state will be updated.
       // The UI is then updated here according to the new state. This is handled by the ProviderListener
-      body: ProviderListener<AsyncValue<Partner?>>(
-          onChange: (context, partner) async {
-            if (partner.data != null) {
-              if (partner is AsyncData) {
-                // A deeplink has been launched and we were able to successfully parse its parameters
-                // So now we can show the dialog pop up to allow user authorization
-                FpDialog.showAuthorization(
-                  context,
-                  username: '@annie',
-                  appName: partner.data!.value!.appName,
-                  onAuthorize: () async {
-                    // Launch the callbackUri if the users taps on Authorize
-                    await DeepLinkService().launchCallbackWithUserInfo(
-                        partner.data!.value!.callbackUri,
-                        referenceUuid: partner.data!.value!.referenceUuid);
-                    Navigator.pop(context);
-                  },
-                );
-              } else if (partner is AsyncError) {
-                // Show the error received from trying to parse the deeplink
-                FpDialog.showError(context,
-                    message: partner.data!.value!.toString());
+      body: ProviderListener<AsyncValue<DeepLinkEvent?>>(
+        provider: deepLinkeEventProvider,
+        onChange: (context, value) async {
+          if (value is AsyncData) {
+            final event = value.data!.value;
+            if (event == null) return;
+
+            if (event is DeepLinkErrorEvent) {
+              FpDialog.showError(context, message: event.message);
+            } else if (event is DeepLinkGetReferenceUuidEvent) {
+              // A deeplink has been launched and we were able to successfully parse its parameters
+              // So now we can show the dialog pop up to allow user authorization
+              final result = await FpDialog.showConfirmation(
+                context,
+                title: 'Authorize ${event.requestingApp}',
+                message:
+                    'Allow us to share your username @annie with ${event.requestingApp} to transfer cash into your pay account',
+                confirmText: 'Authorize',
+              );
+
+              if (result) {
+                // Launch the callbackUri if the users taps on Authorize
+                await DeepLinkService().launchCallbackWithUserInfo(
+                    event.callbackUri,
+                    referenceUuid: event.referenceUuid);
               }
+            } else if (event is DeepLinkInvoiceEvent) {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => PayInvoiceScreen(
+                    event: event,
+                    availableBalance: availableBalance,
+                  ),
+                ),
+              );
+              print('DeepLinkInvoiceEvent: $event');
             }
-          },
-          provider: _dashboardViewModel,
-          child: _body(context)),
+          } else if (value is AsyncError) {
+            // Show the error received from trying to parse the deeplink
+            FpDialog.showError(context,
+                message: (value as AsyncError).error.toString());
+          }
+        },
+        child: _body(context),
+      ),
       bottomNavigationBar: _bottomNavigationBar(context),
     );
   }
@@ -87,7 +99,7 @@ class DashboardPage extends HookWidget {
               ),
             ),
             const SizedBox(height: 24),
-            Text('\$2,2657.79',
+            Text(availableBalance.toCurrency(),
                 style: Theme.of(context)
                     .textTheme
                     .headline1!

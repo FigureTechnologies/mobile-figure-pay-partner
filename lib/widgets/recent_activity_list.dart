@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-
-import '../theme.dart';
+import 'package:mobile_figure_pay_partner/fp_design/fp_design.dart';
 
 class RecentActivityList extends StatelessWidget {
   RecentActivityList({required this.onTap});
@@ -67,16 +65,19 @@ class RecentActivityList extends StatelessWidget {
     );
   }
 
-  Widget _listTile(BuildContext context,
-      {required String title,
-      required String subtitle,
-      required String amount,
-      required String status,
-      required Function() onTap}) {
+  Widget _listTile(
+    BuildContext context, {
+    required String title,
+    required String subtitle,
+    required String amount,
+    required String status,
+    required Function() onTap,
+  }) {
     return ListTile(
-      leading: SvgPicture.asset(
-        'assets/reward.svg',
-        color: Theme.of(context).colorScheme.black,
+      dense: true,
+      leading: FpIcon(
+        FpIcons.reward,
+        color: Colors.black,
       ),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

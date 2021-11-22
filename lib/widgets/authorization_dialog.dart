@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../theme.dart';
+import 'package:mobile_figure_pay_partner/fp_design/fp_design.dart';
 
 class FpDialog {
   static Future<T?> show<T>(
@@ -12,7 +11,6 @@ class FpDialog {
   }) {
     return showDialog<T>(
       context: context,
-      barrierColor: Theme.of(context).colorScheme.black.withOpacity(0.8),
       barrierDismissible: barriedDismissible,
       useRootNavigator: false,
       builder: (context) => AlertDialog(
@@ -20,12 +18,9 @@ class FpDialog {
         title: title != null
             ? Padding(
                 padding: const EdgeInsets.only(top: 32, left: 16, right: 16),
-                child: Text(
+                child: FpText(
                   title,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline4!
-                      .copyWith(color: Theme.of(context).colorScheme.black),
+                  style: FpTextStyle.h4,
                   textAlign: TextAlign.center,
                 ),
               )
