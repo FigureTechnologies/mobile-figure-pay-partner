@@ -1,4 +1,3 @@
-// @dart=2.12
 import 'package:flutter/material.dart';
 import 'package:mobile_figure_pay_partner/extensions/date_time_ext.dart';
 import 'package:mobile_figure_pay_partner/extensions/double_ext.dart';
