@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_figure_pay_partner/extensions/double_ext.dart';
 import 'package:mobile_figure_pay_partner/fp_design/fp_design.dart';
 import 'package:mobile_figure_pay_partner/services/deep_link_service.dart';
+import 'package:mobile_figure_pay_partner/transaction_complete_screen.dart';
 
 class PayInvoiceScreen extends StatelessWidget {
   const PayInvoiceScreen({
@@ -72,8 +73,18 @@ class PayInvoiceScreen extends StatelessWidget {
         child: FpPrimaryButton(
           text: 'Pay Now',
           onPressed: () {
-            DeepLinkService().launchCallbackUri(event.callbackUri);
-            Navigator.of(context).pop();
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) {
+                  return TransactionCompleteScreen(
+                    amount: event.amount,
+                    date: DateTime.now(),
+                    name: event.appName,
+                    callbackUri: event.callbackUri,
+                  );
+                },
+              ),
+            );
           },
         ),
       ),
