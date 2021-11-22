@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../theme.dart';
+import 'package:mobile_figure_pay_partner/fp_design/fp_design.dart';
 
 class DirectDepositBanner extends StatelessWidget {
   const DirectDepositBanner({Key? key, required this.onTap}) : super(key: key);
@@ -11,12 +10,9 @@ class DirectDepositBanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return _Banner(
       leading: Image.asset('assets/money_bag.png'),
-      title: Text(
+      title: FpText(
         'Get \$100 with Direct Deposit',
-        style: Theme.of(context)
-            .textTheme
-            .headline7
-            .copyWith(color: Theme.of(context).colorScheme.black),
+        style: FpTextStyle.h7,
       ),
       subtitle: Text('Click to learn more',
           style: Theme.of(context).textTheme.medium.copyWith(
