@@ -25,7 +25,7 @@ class DashboardPage extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.black,
-        brightness: Brightness.dark,
+        systemOverlayStyle: SystemUiOverlayStyle.dark,
         bottom: _bottomAppBar(context),
       ),
       // When a deeplink has been launched from another app and its parameters have been

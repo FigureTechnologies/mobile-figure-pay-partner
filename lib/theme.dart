@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class FigurePayThemeData {
   /// ----- FIGMA COLORS -----
@@ -158,7 +159,7 @@ class FigurePayThemeData {
     appBarTheme: AppBarTheme(
       color: _colorScheme.primary,
       iconTheme: IconThemeData(color: _colorScheme.onPrimary),
-      brightness: Brightness.dark,
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
     ),
     bottomAppBarTheme: BottomAppBarTheme(
       color: _colorScheme.primary,

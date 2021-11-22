@@ -78,7 +78,8 @@ class FpAppBar extends StatelessWidget implements PreferredSizeWidget {
           : isDark
               ? Colors.black
               : theme.colorScheme.background,
-      brightness: isDark ? Brightness.dark : Brightness.light,
+      systemOverlayStyle:
+          isDark ? SystemUiOverlayStyle.dark : SystemUiOverlayStyle.light,
     );
   }
 
