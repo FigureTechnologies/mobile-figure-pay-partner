@@ -1,0 +1,14 @@
+schema-version: v2
+dd-service: mobile-figure-pay-partner
+team: ENTER_GITHUB_TEAM_NAME_BEFORE_MERGING
+contacts:
+- type: slack
+  contact: ENTER_SLACK_LINK_BEFORE_MERGING
+repos:
+- name: GitHub Repo
+  provider: github
+  url: https://github.com/FigureTechnologies/mobile-figure-pay-partner
+docs:
+- name: GitHub Team
+  provider: github
+  url: https://github.com/orgs/FigureTechnologies/teams/ENTER_GITHUB_TEAM_NAME_BEFORE_MERGING/members
